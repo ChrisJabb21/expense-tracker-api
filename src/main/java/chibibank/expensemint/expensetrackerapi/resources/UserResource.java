@@ -1,4 +1,4 @@
-package jabbour.expensemint.expensetrackerapi.resources;
+package chibibank.expensemint.expensetrackerapi.resources;
 
 import java.util.Map;
 

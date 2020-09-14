@@ -1,22 +1,30 @@
-### Chibibank Expense Tracker 
+# Expense Mint
+----
 
-A expense tracker 
+A expense tracker for tracking and accessing user expenses by categories
 
-Spring Boot RESTful API made to connect with backend (repository,service,domain patterns) using JDBCTemplate along with user login and registration and tracking and implementing a session token for maintaining a session and controlling access. 
+CompanyId: ChibiBank (fictional financial service company/brand)
+ProjectId: Expense Mint (product name)
 
-//to add to project board and wiki
-(WIP to be expanded upon and planning to incorprate a frontend to project and trying to implement session tokens starting with JWT and considering Auth0 or Okta.)
+Spring Boot RESTful API (resource,repository,service,domain/entity pattern) made to connect with backend  using JDBCTemplate along methods for user login and registration and tracking and implementing a session token for maintaining a session and controlling access. 
 
-### Getting Started
+
+
+## Getting Started
+
+----
+
 ## Creating the Database
 
-# PostgreSQL Set Up  
+### PostgreSQL Set Up  
 - download and install a postgreSQL server on postgresql.org
 - create a superuser (default user is postgresql and set the password) and go through postgresql installation.
 
-# Script execution
+### Script execution
 - set up the environment variable for postgresql (psql) based your machine
 - run the command  ```psql -U postgres --file em_db.sql``` the command line in the project directory to create database on your machine
+
+-----
 
 ### Reference Documentation
 For further reference, please consider the following sections:
@@ -29,7 +37,7 @@ For further reference, please consider the following sections:
 * [JDBC API](https://docs.spring.io/spring-boot/docs/2.3.3.RELEASE/reference/htmlsingle/#boot-features-sql)
 * [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/2.3.3.RELEASE/reference/htmlsingle/#production-ready)
 
-
+---
 
 ### Guides
 The following guides illustrate how to use some features concretely:
@@ -42,4 +50,8 @@ The following guides illustrate how to use some features concretely:
 * [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
 * [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
 
-* [Accessing data with PostgreSQL](https://spring.io/guides/gs/accessing-data-postgresql/)
+### Further Reading on REST architural principles and best practices
+
+* [REST Resources](https://restful-api-design.readthedocs.io/en/latest/resources.html#:~:text=The%20fundamental%20concept%20in%20any,methods%20that%20operate%20on%20it.&text=Each%20collection%20is%20homogeneous%20so,type%20of%20resource%2C%20and%20unordered.)
+
+* [RESTful API Strategy](https://github.com/restfulapi/api-strategy)
