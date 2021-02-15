@@ -9,6 +9,5 @@ public interface UserRepository {
     User findByEmailAndPassword(String email, String password) throws Em_AuthException;
     Integer getCountByEmail(String email); //Check if an email already exists 
     User findById(Integer userId);
-    //Boolean validatePassword(String password); test password validation
-
+    
 }

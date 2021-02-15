@@ -20,8 +20,19 @@ public class UserResource {
 
     @Autowired 
     UserService userService;
-    
+
     //HTTP Request methods
+    @PostMapping("/login")
+    public ResponseEntity<Map<String, String>> loginUser(@RequestBody Map<String, Object> userMap){
+        String email = (String) userMap.get("email");
+        String password = (String) userMap.get("password");
+        User user = userService.validateUser(email, password);
+        Map<String, String> map = new HashMap<>();
+        map.put("message", "logged in successfully");
+        return new ResponseEntity<>(map, HttpStatus.OK);
+    }
+    
+    
     /**  post method for register user
      * @param userMap key-value data structure with a String key and Object value
      * @return ResponseEntity object with the given body and status code, and no headers.
@@ -32,7 +43,6 @@ public class UserResource {
         String lastName = (String) userMap.get("lastName");
         String email = (String) userMap.get("email");
         String password = (String) userMap.get("password");
-
         User user = userService.registerUser(firstName, lastName, email, password);
         Map<String, String> map = new HashMap<>();
         map.put("message", "registration successful");
