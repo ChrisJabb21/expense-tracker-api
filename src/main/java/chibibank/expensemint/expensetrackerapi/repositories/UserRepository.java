@@ -7,7 +7,7 @@ public interface UserRepository {
     
     Integer create(String firstName, String lastName, String email, String password) throws Em_AuthException;    
     User findByEmailAndPassword(String email, String password) throws Em_AuthException;
-    Integer getCountByEmail(String email); //Check if an email already exists 
+    Integer getCountByEmail(String email);
     User findById(Integer userId);
     
 }
