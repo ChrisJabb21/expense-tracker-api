@@ -13,7 +13,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import chibibank.expensemint.expensetrackerapi.domains.User;
-import chibibank.expensemint.expensetrackerapi.exceptions.Em_AuthException;
+import chibibank.expensemint.expensetrackerapi.exceptions.EmAuthException;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
@@ -31,7 +31,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public Integer create(String firstName, String lastName, String email, String password) 
-    throws Em_AuthException {
+    throws EmAuthException {
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt(10));
         try{
             //Keyholder used for retreiving auto generated keys returned by insert statements.
@@ -46,20 +46,20 @@ public class UserRepositoryImpl implements UserRepository {
             }, keyHolder);
             return (Integer) keyHolder.getKeys().get("USER_ID");
         } catch (Exception e) {
-            throw new Em_AuthException("Account registration failed due to Invalid details.");
+            throw new EmAuthException("Account registration failed due to Invalid details.");
         }
     }
 
     @Override
-    public User findByEmailAndPassword(String email, String password) throws Em_AuthException {
+    public User findByEmailAndPassword(String email, String password) throws EmAuthException {
         try {
             User user = jdbcTemplate.queryForObject(SQL_FIND_BY_EMAIL, new Object[]{email}, userRowMapper);
             if(!BCrypt.checkpw(password, user.getPassword()))
-                throw new Em_AuthException("Invalid email/password");
+                throw new EmAuthException("Invalid email/password");
             return user;
         }
         catch (EmptyResultDataAccessException e) {
-            throw new Em_AuthException("Invalid email/password");
+            throw new EmAuthException("Invalid email/password");
         }
     }
 
