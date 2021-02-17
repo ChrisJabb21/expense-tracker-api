@@ -10,12 +10,8 @@ import chibibank.expensemint.expensetrackerapi.domains.User;
 import chibibank.expensemint.expensetrackerapi.exceptions.EmAuthException;
 import chibibank.expensemint.expensetrackerapi.repositories.UserRepository;
 
-/***
- * Service class for implementation the business logic, in this case User
- * validation and User Registration
- */
 @Service
-@Transactional //
+@Transactional 
 public class UserServiceImpl implements UserService {
 
     // private static final String PASSWORD_PATTERN =

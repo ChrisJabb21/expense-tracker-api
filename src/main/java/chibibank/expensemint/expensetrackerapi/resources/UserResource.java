@@ -45,7 +45,7 @@ public class UserResource {
         String lastName = (String) userMap.get("lastName");
         String email = (String) userMap.get("email");
         String password = (String) userMap.get("password");
-        User user = userService.registerUser(firstName, lastName, email, password);
+        userService.registerUser(firstName, lastName, email, password);
         Map<String, String> map = new HashMap<>();
         map.put("message", "registration successful");
         return new ResponseEntity<>(map, HttpStatus.OK);  
