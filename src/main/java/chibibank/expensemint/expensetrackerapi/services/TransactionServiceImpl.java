@@ -45,7 +45,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void removeTransaction(Integer userId, Integer categoryId, Integer transactionId)
             throws EmResourceNotFoundException {
-        // TODO Auto-generated method stub
+            transactionRepository.removeById(userId, categoryId, transactionId);
     }
     
 }

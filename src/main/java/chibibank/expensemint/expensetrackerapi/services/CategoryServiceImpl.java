@@ -42,7 +42,9 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void removeCategoryWithAllTransactions(Integer userId, Integer categoryId)
             throws EmResourceNotFoundException {
-        // TODO Auto-generated method stub
+            this.fetchCategoryById(userId, categoryId);
+            categoryRepository.removeById(userId, categoryId);
+            
     }
     
 }

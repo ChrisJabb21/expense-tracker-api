@@ -26,6 +26,8 @@ public class TransactionRepositoryImpl implements TransactionRepository {
     " AMOUNT, NOTE, TRANSACTION_DATE) VALUES(NEXTVAL('EM_TRANSACTIONS_SEQ'), ?, ?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE EM_TRANSACTIONS SET AMOUNT = ?, NOTE = ?, TRANSACTION_DATE = ? " + 
     " WHERE USER_ID = ? AND CATEGORY_ID = ? AND TRANSACTION_ID = ?";
+    private static final String SQL_DELETE = "DELETE FROM EM_TRANSACTIONS WHERE USER_ID = ? AND CATEGORY_ID = ?" + 
+    "AND TRANSACTION_ID = ? ";
 
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -80,7 +82,9 @@ public class TransactionRepositoryImpl implements TransactionRepository {
     @Override
     public void removeById(Integer userId, Integer categoryId, Integer transactionId)
             throws EmResourceNotFoundException {
-        // TODO Auto-generated method stub
+            int count = jdbcTemplate.update(SQL_DELETE, new Object[]{userId, categoryId, transactionId});
+            if(count == 0)
+                throw new EmResourceNotFoundException("Transaction not found");
 
     }
 
